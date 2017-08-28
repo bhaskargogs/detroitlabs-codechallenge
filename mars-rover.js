@@ -18,9 +18,17 @@ let MarsRover = (location, direction, grid, obstacles)=>{
 					turn(command);
 				}
 			}
+			resetLocation();
 			this.commandArr = command;
 		}
 	};
+	
+	function resetLocation() {
+		self.location = [
+			(self.location[0] + self.grid[0]) % self.grid[0],
+			(self.location[1] + self.grid[1]) % self.grid[1]
+			]
+	}
 	
 }
 
