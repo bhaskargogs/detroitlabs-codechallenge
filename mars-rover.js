@@ -34,10 +34,10 @@ let MarsRover = (location, direction, grid, obstacles)=>{
 		let xInc = 0,yInc = 0;
 		if(self.direction === 'N'){
 			yInc = -1;
-		} else if(self.direction === 'S'){
-			yInc = 1;
 		} else if(self.direction === 'E'){
 			xInc = 1;
+		} else if(self.direction === 'S'){
+			yInc = 1;
 		} else if(self.direction === 'W'){
 			xInc = -1;
 		}
@@ -68,7 +68,23 @@ let MarsRover = (location, direction, grid, obstacles)=>{
 		return false;
 	}
 	
+	function turn(command){
+		let directionNo = directionAsNumber(self.direction);
+		if (command === 'l'){
+			directionNo = (directionNo + 4 -1) % 4;
+		} else {
+			directionNo = (directionNo + 1) % 4;
+		}
+		self.direction = self.direction[directionNo];
+	}
 	
+	this.direction = ['N','E','S','W'];
+	
+	function directionAsNumber(direction){
+		for(let i = 0;i<4;i++){
+			if(self.direction[i] === direction) return i;
+		}
+	}
 }
 
 export default{ directive: MarsRover,name: 'marsRover'};
