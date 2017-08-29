@@ -30,6 +30,45 @@ let MarsRover = (location, direction, grid, obstacles)=>{
 			]
 	}
 	
+	function move(command) {
+		let xInc = 0,yInc = 0;
+		if(self.direction === 'N'){
+			yInc = -1;
+		} else if(self.direction === 'S'){
+			yInc = 1;
+		} else if(self.direction === 'E'){
+			xInc = 1;
+		} else if(self.direction === 'W'){
+			xInc = -1;
+		}
+		if(command === 'b'){
+			xInc *= -1;
+			yInc *=-1;
+		}
+		
+		let newLocation = [
+			self.location[0] + xInc,
+			self.location[1] + yInc
+			];
+		
+		if(isObstacle(newLocation)){
+			return false;
+		}
+		self.location = newLocation;
+		return true;
+	}
+	
+	function isObstacle(newLocation){
+		for(let i=0;i<self.location.length;i++){
+			if(newLocation.toString() === self.location[i].toString()){
+				self.status = 'obstacle';
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 }
 
 export default{ directive: MarsRover,name: 'marsRover'};
