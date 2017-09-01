@@ -76,14 +76,14 @@ function MarsRover (location, direction, grid, obstacles) {
 		} else {
 			directionNo = (directionNo + 1) % 4;
 		}
-		self.direction = self.direction[directionNo];
+		self.direction = self.directions[directionNo];
 	}
 	
 	this.directions = ['N','E','S','W'];
 	
 	function directionAsNumber(direction){
 		for(let i = 0;i<4;i++){
-			if(self.direction[i] === direction) return i;
+			if(self.directions[i] === direction) return i;
 		}
 	}
 }
