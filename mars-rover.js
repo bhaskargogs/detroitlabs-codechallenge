@@ -79,7 +79,7 @@ function MarsRover (location, direction, grid, obstacles) {
 		self.direction = self.direction[directionNo];
 	}
 	
-	this.direction = ['N','E','S','W'];
+	this.directions = ['N','E','S','W'];
 	
 	function directionAsNumber(direction){
 		for(let i = 0;i<4;i++){
