@@ -1,4 +1,5 @@
-let MarsRover = (location, direction, grid, obstacles)=>{
+function MarsRover (location, direction, grid, obstacles) {
+	
 	let self = this;
 	this.location = (location === undefined) ? [0,0] : location;
 	this.direction = (direction === undefined) ? 'N' : direction;
@@ -86,5 +87,3 @@ let MarsRover = (location, direction, grid, obstacles)=>{
 		}
 	}
 }
-
-export default{ directive: MarsRover,name: 'marsRover'};
